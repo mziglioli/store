@@ -1,13 +1,18 @@
 import React from "react";
 import axios from "axios";
-import { Title } from "../components/Title";
+import Link from "next/link";
+import {Header, Title} from "../components";
 
-const Home = (props) => {
+const Home = ({programs, user}) => {
 	return (
 		<div>
+			<Header user={user} />
 			<Title text={"Home Page"} dataTestId={"home-title"} />
+			<Link href="/contact" as="/contact">
+				Back
+			</Link>
 			Shows:
-			{props.programs && props.programs.map((program, index) => (
+			{programs && programs.map((program, index) => (
 				<li key={`show_${index}`}>{program.show.name}</li>
 			))}
 		</div>
