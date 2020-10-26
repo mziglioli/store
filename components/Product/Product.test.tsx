@@ -13,6 +13,6 @@ describe("Product component", () => {
 
 	it("should build component", () => {
 		const { getByTestId } = wrapper();
-		expect(getByTestId("products-title_id")).toHaveTextContent("test");
+		expect(getByTestId("products-title")).toHaveTextContent("test");
 	});
 });

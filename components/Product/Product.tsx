@@ -15,7 +15,7 @@ export const Product = () => {
     }, []);
     return (
         <div>
-            <h3 className="products-title" data-testid="products-title_id">
+            <h3 className="products-title" data-testid="products-title">
                 test
             </h3>
             <div className="" data-testid="products-div">
