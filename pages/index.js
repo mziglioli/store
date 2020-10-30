@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import {Title} from "../components";
 import {Page} from "../components/Page";
-import {check, HEADER_TOKEN_NAME} from "../service/UserService/UserService";
 
 const Home = ({ user }) => {
 	return (
@@ -16,17 +15,6 @@ const Home = ({ user }) => {
 			</Page>
 		</div>
 	)
-};
-
-Home.getInitialProps = async ({ req }) => {
-	const token = req?.headers[HEADER_TOKEN_NAME];
-	let user;
-	if (token) {
-		user = await check(token);
-	}
-	return {
-		user: user
-	}
 };
 
 export default Home;
