@@ -1,9 +1,27 @@
 import React from "react";
 import { Product } from "./Product";
-import { render } from "@testing-library/react";
+import {act, render} from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import { delay } from "../utils/TestFunctionUtils";
+import { getAll } from "../utils/ProductClient";
+
+jest.mock("../utils/ProductClient");
+const productsMock = [
+	{name: "product 1"},
+	{name: "product 2"}
+];
 
 describe("Product component", () => {
+
+	let mockedResponse;
+	const mockProducts = (products) => {
+		const fakeResponsePromise = Promise.resolve(products);
+		mockedResponse = jest.fn().mockImplementationOnce(() => {
+			return fakeResponsePromise;
+		});
+		// @ts-ignore
+		getAll.mockImplementation(mockedResponse);
+	};
 
 	const wrapper = () => {
 		return render(
@@ -11,8 +29,22 @@ describe("Product component", () => {
 		);
 	}
 
-	it("should build component", () => {
-		const { getByTestId } = wrapper();
-		expect(getByTestId("products-title")).toHaveTextContent("test");
+	it("should build component without products", async () => {
+		mockProducts([]);
+		const { getByTestId, queryAllByTestId } = wrapper();
+		await act(async () => {
+			expect(getByTestId("product-title")).toHaveTextContent("test");
+			expect(queryAllByTestId("products-item")).toHaveLength(0);
+		});
+	});
+	it("should build component with products", async () => {
+		mockProducts(productsMock);
+		const { getByTestId, queryAllByTestId } = wrapper();
+		await act(async () => {
+			expect(getByTestId("product-title")).toHaveTextContent("test");
+			await delay();
+			expect(queryAllByTestId("products-item")).toHaveLength(2);
+		});
+
 	});
 });

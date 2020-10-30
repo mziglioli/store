@@ -1,10 +1,10 @@
 import React from "react";
-import axios from "axios";
 import Link from "next/link";
 import {Title} from "../components";
 import {Page} from "../components/Page";
+import {check, HEADER_TOKEN_NAME} from "../service/UserService/UserService";
 
-const Home = ({programs, user}) => {
+const Home = ({ user }) => {
 	return (
 		<div>
 			<Page  user={user}>
@@ -12,20 +12,20 @@ const Home = ({programs, user}) => {
 				<Link href="/product" as="/product">
 					Find out our products
 				</Link>
-				<p>Shows:</p>
-				{programs && programs.map((program, index) => (
-					<li key={`show_${index}`}>{program.show.name}</li>
-				))}
+				Page here
 			</Page>
 		</div>
 	)
 };
 
-Home.getInitialProps = async context => {
-	const country = context.query.country || "us"
-	const response = await axios.get(`https://api.tvmaze.com/schedule?country=${country}&date=2014-12-01`);
+Home.getInitialProps = async ({ req }) => {
+	const token = req?.headers[HEADER_TOKEN_NAME];
+	let user;
+	if (token) {
+		user = await check(token);
+	}
 	return {
-		programs: response.data
+		user: user
 	}
 };
 

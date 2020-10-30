@@ -18,24 +18,17 @@ export const handleResponse = response => {
 	});
 };
 
-export const makeGetRequest = async url => {
-	return fetch(url, {}).then(handleResponse);
+export const makeGetRequest = async (url: string, headers: any) => {
+	return fetch(url, {
+		method: "GET",
+		headers
+	}).then(handleResponse);
 };
-export const makePostRequest = async (url, form) => {
+export const makePostRequest = async (url: string, form: any, headers: any) => {
 	return fetch(url, {
 		method: "POST",
-		headers: {
-			"Content-Type": "application/json"
-		},
+		headers,
 		body: JSON.stringify(form)
 	}).then(handleResponse);
 };
-export const makePostRequestEmptyResponse = async (url, form) => {
-	return fetch(url, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify(form)
-	});
-};
+

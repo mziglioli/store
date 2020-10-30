@@ -1,8 +1,7 @@
-const usersMock = [
-    {name: "test"},
-    {name: "new"}
-];
+import { getAll } from "../../service/UserService"
 
-export default function handler(req, res) {
-    res.status(200).json(usersMock);
+export default async function handler(req, res) {
+    const users = await getAll();
+    console.log("handle-users", users);
+    res.status(200).json(users);
 }

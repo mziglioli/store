@@ -15,12 +15,12 @@ export const Product = () => {
     }, []);
     return (
         <div>
-            <h3 className="products-title" data-testid="products-title">
+            <h3 className="product-title" data-testid="product-title">
                 test
             </h3>
-            <div className="" data-testid="products-div">
+            <div className="" data-testid="products">
                 {products && products.length > 0 && products.map((p, index) => (
-                    <p key={`product_${index}`}>{p.name}</p>
+                    <p key={`product_${index}`} data-testid="products-item">{p.name}</p>
                 ))}
             </div>
         </div>
