@@ -1,17 +1,14 @@
 const namePattern = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/i;
 const emailPattern = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i;
 
-export const validateName = name => {
-	if (name && name.trim().length > 0 && name.match(namePattern)) {
-		return true;
-	}
-	return false;
+export const validateName = (name: string): boolean => {
+	return !!(name && name.trim().length > 0 && name.match(namePattern));
 };
 
-export const validateEmail = email => {
-	if (email && email.match(emailPattern)) {
-		return true;
-	}
-	return false;
+export const validateEmail = (email: string): boolean => {
+	return !!(email && email.match(emailPattern));
 };
 
+export const validatePassword = (password: string): boolean => {
+	return !!(password && password.length > 3);
+}

@@ -1,6 +1,6 @@
 /* istanbul ignore file */
 /* eslint-disable  @typescript-eslint/no-var-requires */
-import { act } from "@testing-library/react";
+import { act, fireEvent } from "@testing-library/react";
 import nock from "nock";
 import {UserResponse} from "../../type/response";
 import {UserForm} from "../../type/form";
@@ -66,6 +66,20 @@ export const mockNockPostError500 = (path: string, uri: string, body: any, respo
 		.reply((_, body) => {
 			return [500, response];
 		});
+};
+
+// events
+export const fireEventChangeAndBlur = async (element, value) => {
+	await fireEvent.change(element, {
+		target: {
+			value
+		}
+	});
+	await fireEvent.blur(element);
+};
+// events
+export const fireEventClick = async (element) => {
+	await fireEvent.click(element);
 };
 
 // builders

@@ -1,4 +1,5 @@
-import { makeGetRequest } from "./DefaultClient";
+import {makeGetRequest, makePostRequest} from "./DefaultClient";
+import {UserForm} from "../../type/form";
 
 /**
  * Get all users from the api
@@ -7,4 +8,7 @@ import { makeGetRequest } from "./DefaultClient";
  */
 export const getAll = async () => {
 	return makeGetRequest("/api/users");
+};
+export const authenticate = async (form: UserForm) => {
+	return makePostRequest("/api/login", form);
 };

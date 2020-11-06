@@ -1,7 +1,6 @@
-import axios from "axios";
 import { UserApiURL, UserApiAuth } from "../../config/default";
 import { UserResponse, UserForm } from "../../type";
-import {makeGetRequest} from "./DefaultClient";
+import { makeGetRequest, makePostRequest } from "./DefaultClient";
 
 export const usersMock = [
 	{name: "test"},
@@ -36,7 +35,7 @@ export const getAll = async (): Promise<Array<UserResponse>> => {
 export const authenticate = async (res, form: UserForm): Promise<UserResponse> => {
 	try {
 		console.log("authenticate", UserApiURL);
-		const response = await makeGetRequest(`${UserApiURL}/user/authenticate`, HEADERS);
+		const response = await makePostRequest(`${UserApiURL}/user/authenticate`, form, HEADERS);
 		res.setHeader(HEADER_TOKEN_NAME, response?.token);
 		console.log("authenticate-success", response);
 		return response;

@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../style/theme';
+import Cookies from 'cookies';
 
 function MyApp({ Component, pageProps }) {
     React.useEffect(() => {
@@ -34,8 +35,9 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
 
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
 
-    const { req } = ctx;
-    const token = req?.headers[HEADER_TOKEN_NAME];
+    const { req, res } = ctx;
+    const cookies = new Cookies(req, res);
+    const token = cookies.get(HEADER_TOKEN_NAME);
     let user;
     if (token) {
         user = await check(token);
