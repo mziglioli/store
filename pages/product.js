@@ -1,18 +1,30 @@
 import React from "react";
 import { Title } from "../components";
 import { Product as Products } from "../components/Product";
-import { Page } from "../components/Page";
+import Page from "../components/Page/Page";
+import {i18n, withTranslation} from "../i18n";
 
-const Product = ({ user }) => {
+const Product = ({ t, user }) => {
 	console.log("load");
 	return (
 		<div>
-			<Page  user={user}>
-				<Title text={"Product Page"} dataTestId={"product-title"} />
+			<Page
+				changeLanguage={(language) => {
+					console.log("changeLanguage", i18n.language, language);
+					i18n.changeLanguage(language);
+				}}
+				selectedLanguage={i18n.language}
+				translations={t}
+				user={user}
+			>
+				<Title text={t("product_title")} dataTestId={"product-title"} />
 				<Products />
 			</Page>
 		</div>
 	)
 };
 
-export default Product;
+Product.getInitialProps = async () => ({
+	namespacesRequired: ["common", "header"]
+})
+export default withTranslation("common")(Product);

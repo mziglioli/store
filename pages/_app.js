@@ -1,13 +1,15 @@
-import {check, HEADER_TOKEN_NAME} from "../service/UserService/UserService";
-import React from 'react';
+import {check, HEADER_TOKEN_NAME} from "../service/UserService";
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../style/theme';
 import Cookies from 'cookies';
+import {appWithTranslation} from "../i18n";
 
-function MyApp({ Component, pageProps }) {
-    React.useEffect(() => {
+const MyApp = ({ Component, pageProps }) => {
+
+    useEffect(() => {
         // Remove the server-side injected CSS.
         const jssStyles = document.querySelector('#jss-server-side');
         if (jssStyles) {
@@ -34,20 +36,21 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     console.log("MyApp.getInitialProps");
 
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
-
     const { req, res } = ctx;
-    const cookies = new Cookies(req, res);
-    const token = cookies.get(HEADER_TOKEN_NAME);
     let user;
-    if (token) {
-        user = await check(token);
+    if (req && res) {
+        const cookies = new Cookies(req, res);
+        const token = cookies.get(HEADER_TOKEN_NAME);
+        if (token) {
+            user = await check(token);
+        }
     }
     return {
         pageProps: {
             ...pageProps,
-            user
+            user,
         },
     };
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

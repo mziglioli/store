@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import Document, {
-    Html, Main, NextScript,
+    Html, Main, NextScript, Head
 } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 
@@ -9,6 +9,7 @@ export default class MyDocument extends Document {
     render() {
         return (
             <Html lang="en">
+                <Head/>
                 <body>
                 <Main />
                 <NextScript />
