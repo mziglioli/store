@@ -8,19 +8,29 @@ import Flag from 'react-world-flags';
 
 import {HeaderMenuItem} from "./HeaderMenuItem";
 import {Meta} from "../../type/meta";
+import {modifyLanguage} from "../utils/LanguageClient";
+import {FormattedMessage, useIntl} from "react-intl";
 
 interface HeaderProps {
-    translations: { [key: string]: string };
     user?: any;
-    selectedLanguage: string;
-    changeLanguage?: (language: string) => void;
     meta: Meta
 }
-export const Header = ({ translations, user, selectedLanguage, changeLanguage, meta }: HeaderProps) => {
+export const Header = ({ user, meta }: HeaderProps) => {
     const classes = appStyles();
+    const { formatMessage } = useIntl();
     const [open, setOpen] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
     const isMenuOpen = Boolean(anchorEl);
+
+    const modifyLanguageApi = (language) => {
+        modifyLanguage(language)
+            .then(result => {
+                console.log("modifyLanguageApi", result);
+                // need to reload to better SEO, server side language handler
+                window.location.reload();
+            })
+            .catch(error => console.error("modifyLanguageApi", error))
+    }
 
     function handleDrawerOpen() {
         setOpen(true);
@@ -35,11 +45,13 @@ export const Header = ({ translations, user, selectedLanguage, changeLanguage, m
         setAnchorEl(null);
     }
     function handleLanguagePT() {
-        changeLanguage("pt");
+        // changeLanguage("pt");
+        modifyLanguageApi("pt");
         handleLanguageMenuClose();
     }
     function handleLanguageGB() {
-        changeLanguage("en");
+        // changeLanguage("en");
+        modifyLanguageApi("en");
         handleLanguageMenuClose();
     }
     function handleLogoutClick() {
@@ -56,7 +68,7 @@ export const Header = ({ translations, user, selectedLanguage, changeLanguage, m
                     <div className={classes.grow} />
                     {user && (
                         <Typography noWrap>
-                            {translations['welcome']}: {user.name}
+                            <FormattedMessage id="welcome" />: {user.name}
                         </Typography>
                     )}
                     <IconButton
@@ -67,10 +79,10 @@ export const Header = ({ translations, user, selectedLanguage, changeLanguage, m
                         onClick={handleLanguageMenuOpen}
                         color="inherit"
                     >
-                        {selectedLanguage === "pt" && (
+                        {meta.language === "pt" && (
                             <Flag code="br" height="22" />
                         )}
-                        {selectedLanguage === "en" && (
+                        {meta.language === "en" && (
                             <Flag code="gb" height="16" />
                         )}
                     </IconButton>
@@ -95,15 +107,15 @@ export const Header = ({ translations, user, selectedLanguage, changeLanguage, m
                     </IconButton>
                 </div>
                 <Divider />
-                <HeaderMenuItem title={translations["home"]} name={"menu_home"} endpoint={"/"} icon={<HomeIcon/>} />
-                <HeaderMenuItem title={translations["about"]} name={"menu_about"} endpoint={"/about"} icon={<HelpIcon/>} />
-                <HeaderMenuItem title={translations["contact"]} name={"menu_contact"} endpoint={"/contact"} icon={<ContactsIcon/>} />
+                <HeaderMenuItem title={formatMessage({id:"menu_home"})} name={"menu_home"} endpoint={"/"} icon={<HomeIcon/>} />
+                <HeaderMenuItem title={formatMessage({id:"menu_about"})} name={"menu_about"} endpoint={"/about"} icon={<HelpIcon/>} />
+                <HeaderMenuItem title={formatMessage({id:"menu_contact"})} name={"menu_contact"} endpoint={"/contact"} icon={<ContactsIcon/>} />
                 {meta.page !== "login" && !user && (
                     <React.Fragment>
                         <Divider />
                         <ListItem button key={"DrawerLoginItem"} component="a" href="/login">
                             <ListItemIcon><HelpIcon/></ListItemIcon>
-                            <ListItemText primary={translations['login']} />
+                            <ListItemText primary={formatMessage({id:"menu_login"})} />
                         </ListItem>
                     </React.Fragment>
                 )}

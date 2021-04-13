@@ -922,20 +922,6 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.12.0":
-  version "7.12.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
-  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.13.6":
-  version "7.13.10"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@babel/runtime/-/runtime-7.13.10.tgz#47d42a57b6095f4468da440388fdbad8bebf0d7d"
-  integrity sha1-R9QqV7YJX0Ro2kQDiP262L6/DX0=
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
 "@babel/template@^7.10.4", "@babel/template@^7.3.3", "@babel/template@^7.7.0":
   version "7.10.4"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@babel/template/-/template-7.10.4.tgz#3251996c4200ebc71d1a8fc405fba940f36ba278"
@@ -991,6 +977,59 @@
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
+
+"@formatjs/ecma402-abstract@1.6.5":
+  version "1.6.5"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/ecma402-abstract/-/ecma402-abstract-1.6.5.tgz#ab461b6a284278ffe051ddd817537be4092e71be"
+  integrity sha1-q0YbaihCeP/gUd3YF1N75Akucb4=
+  dependencies:
+    tslib "^2.1.0"
+
+"@formatjs/icu-messageformat-parser@1.1.5":
+  version "1.1.5"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/icu-messageformat-parser/-/icu-messageformat-parser-1.1.5.tgz#0c0dae9878329a26a4df6c74d1d3a59de08d4df9"
+  integrity sha1-DA2umHgymiak32x00dOlneCNTfk=
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.6.5"
+    "@formatjs/icu-skeleton-parser" "1.1.2"
+    tslib "^2.1.0"
+
+"@formatjs/icu-skeleton-parser@1.1.2":
+  version "1.1.2"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/icu-skeleton-parser/-/icu-skeleton-parser-1.1.2.tgz#b559f32a920ea6600df53735143b59e6cc087c1d"
+  integrity sha1-tVnzKpIOpmAN9Tc1FDtZ5swIfB0=
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.6.5"
+    tslib "^2.1.0"
+
+"@formatjs/intl-displaynames@4.0.13":
+  version "4.0.13"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/intl-displaynames/-/intl-displaynames-4.0.13.tgz#48ed7a8c25e082ee93d3042d5a73c7c836c53503"
+  integrity sha1-SO16jCXggu6T0wQtWnPHyDbFNQM=
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.6.5"
+    tslib "^2.1.0"
+
+"@formatjs/intl-listformat@5.0.14":
+  version "5.0.14"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/intl-listformat/-/intl-listformat-5.0.14.tgz#20862c464841dc4c46893db9144f3da5e9dc304e"
+  integrity sha1-IIYsRkhB3ExGiT25FE89pencME4=
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.6.5"
+    tslib "^2.1.0"
+
+"@formatjs/intl@1.9.8":
+  version "1.9.8"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/intl/-/intl-1.9.8.tgz#594ef2430b4c3371d9e3e5a90f1701af58dfda47"
+  integrity sha1-WU7yQwtMM3HZ4+WpDxcBr1jf2kc=
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.6.5"
+    "@formatjs/icu-messageformat-parser" "1.1.5"
+    "@formatjs/intl-displaynames" "4.0.13"
+    "@formatjs/intl-listformat" "5.0.14"
+    fast-memoize "^2.5.2"
+    intl-messageformat "9.6.7"
+    tslib "^2.1.0"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -1338,44 +1377,10 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/body-parser@*":
-  version "1.19.0"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/body-parser/-/body-parser-1.19.0.tgz#0685b3c47eb3006ffed117cdd55164b61f80538f"
-  integrity sha1-BoWzxH6zAG/+0RfN1VFkth+AU48=
-  dependencies:
-    "@types/connect" "*"
-    "@types/node" "*"
-
-"@types/connect@*":
-  version "3.4.34"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/connect/-/connect-3.4.34.tgz#170a40223a6d666006d93ca128af2beb1d9b1901"
-  integrity sha1-FwpAIjptZmAG2TyhKK8r6x2bGQE=
-  dependencies:
-    "@types/node" "*"
-
 "@types/domhandler@2.4.1":
   version "2.4.1"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/domhandler/-/domhandler-2.4.1.tgz#7b3b347f7762180fbcb1ece1ce3dd0ebbb8c64cf"
   integrity sha1-ezs0f3diGA+8sezhzj3Q67uMZM8=
-
-"@types/express-serve-static-core@^4.17.18":
-  version "4.17.19"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/express-serve-static-core/-/express-serve-static-core-4.17.19.tgz#00acfc1632e729acac4f1530e9e16f6dd1508a1d"
-  integrity sha1-AKz8FjLnKaysTxUw6eFvbdFQih0=
-  dependencies:
-    "@types/node" "*"
-    "@types/qs" "*"
-    "@types/range-parser" "*"
-
-"@types/express@^4.16.1":
-  version "4.17.11"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/express/-/express-4.17.11.tgz#debe3caa6f8e5fcda96b47bd54e2f40c4ee59545"
-  integrity sha1-3r48qm+OX82pa0e9VOL0DE7llUU=
-  dependencies:
-    "@types/body-parser" "*"
-    "@types/express-serve-static-core" "^4.17.18"
-    "@types/qs" "*"
-    "@types/serve-static" "*"
 
 "@types/graceful-fs@^4.1.2":
   version "4.1.4"
@@ -1383,6 +1388,14 @@
   integrity sha1-T/n2QafG0aNQj/iLwxQbFSdy51M=
   dependencies:
     "@types/node" "*"
+
+"@types/hoist-non-react-statics@^3.3.1":
+  version "3.3.1"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
+  integrity sha1-ESSq/lEYy1kZd66xzqrtEHDrA58=
+  dependencies:
+    "@types/react" "*"
+    hoist-non-react-statics "^3.3.0"
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   version "2.0.3"
@@ -1416,11 +1429,6 @@
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/json-schema/-/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
   integrity sha1-9MfsQ+gbMZqYFRFQMXCfJph4kfA=
 
-"@types/mime@^1":
-  version "1.3.2"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/mime/-/mime-1.3.2.tgz#93e25bf9ee75fe0fd80b594bc4feb0e862111b5a"
-  integrity sha1-k+Jb+e51/g/YC1lLxP6w6GIRG1o=
-
 "@types/node@*", "@types/node@^14.14.2":
   version "14.14.2"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/node/-/node-14.14.2.tgz#d25295f9e4ca5989a2c610754dc02a9721235eeb"
@@ -1440,16 +1448,6 @@
   version "15.7.3"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha1-KrDV2i5YFflLC51LldHl8kOrLKc=
-
-"@types/qs@*":
-  version "6.9.6"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/qs/-/qs-6.9.6.tgz#df9c3c8b31a247ec315e6996566be3171df4b3b1"
-  integrity sha1-35w8izGiR+wxXmmWVmvjFx30s7E=
-
-"@types/range-parser@*":
-  version "1.2.3"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/range-parser/-/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
-  integrity sha1-fuMwunyq+5gJC+zoal7kQRWQTCw=
 
 "@types/react-transition-group@^4.2.0":
   version "4.4.0"
@@ -1473,14 +1471,6 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
-
-"@types/serve-static@*":
-  version "1.13.9"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@types/serve-static/-/serve-static-1.13.9.tgz#aacf28a85a05ee29a11fb7c3ead935ac56f33e4e"
-  integrity sha1-qs8oqFoF7imhH7fD6tk1rFbzPk4=
-  dependencies:
-    "@types/mime" "^1"
-    "@types/node" "*"
 
 "@types/stack-utils@^2.0.0":
   version "2.0.0"
@@ -2857,11 +2847,6 @@ core-js@^2.4.0, core-js@^2.6.5:
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha1-OIMUafmSK97Y7iHJ3EaYXgOZMIw=
 
-core-js@^3:
-  version "3.6.5"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
-  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
-
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -3718,6 +3703,11 @@ fast-levenshtein@~2.0.6:
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
+fast-memoize@^2.5.2:
+  version "2.5.2"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/fast-memoize/-/fast-memoize-2.5.2.tgz#79e3bb6a4ec867ea40ba0e7146816f6cdce9b57e"
+  integrity sha1-eeO7ak7IZ+pAug5xRoFvbNzptX4=
+
 fastparse@^1.1.2:
   version "1.1.2"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/fastparse/-/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
@@ -4204,7 +4194,7 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@^3.2.0, hoist-non-react-statics@^3.3.2:
+hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -4242,13 +4232,6 @@ html-escaper@^2.0.0:
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/html-escaper/-/html-escaper-2.0.2.tgz#dfd60027da36a36dfcbe236262c00a5822681453"
   integrity sha1-39YAJ9o2o238viNiYsAKWCJoFFM=
 
-html-parse-stringify2@^2.0.1:
-  version "2.0.1"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/html-parse-stringify2/-/html-parse-stringify2-2.0.1.tgz#dc5670b7292ca158b7bc916c9a6735ac8872834a"
-  integrity sha1-3FZwtyksoVi3vJFsmmc1rIhyg0o=
-  dependencies:
-    void-elements "^2.0.1"
-
 html-react-parser@^0.10.0:
   version "0.10.5"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/html-react-parser/-/html-react-parser-0.10.5.tgz#d05e3efd8ffaff692007b99b5b7d54f05a6c5f37"
@@ -4281,14 +4264,6 @@ http-errors@1.7.2:
     setprototypeof "1.1.1"
     statuses ">= 1.5.0 < 2"
     toidentifier "1.0.0"
-
-http-errors@~1.4.0:
-  version "1.4.0"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/http-errors/-/http-errors-1.4.0.tgz#6c0242dea6b3df7afda153c71089b31c6e82aabf"
-  integrity sha1-bAJC3qaz33r9oVPHEImzHG6Cqr8=
-  dependencies:
-    inherits "2.0.1"
-    statuses ">= 1.2.1 < 2"
 
 http-errors@~1.7.2:
   version "1.7.3"
@@ -4333,37 +4308,6 @@ hyphenate-style-name@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
-
-i18next-browser-languagedetector@^5.0.0:
-  version "5.0.1"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/i18next-browser-languagedetector/-/i18next-browser-languagedetector-5.0.1.tgz#02a18f57f79b5de06279feb9a84c80ea4dde7da9"
-  integrity sha1-AqGPV/ebXeBief65qEyA6k3efak=
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-
-i18next-fs-backend@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-1.0.7.tgz#00ca4587e306f8948740408389dda73461a5d07f"
-  integrity sha512-aAZ3rvshe1Zbl6JSCWrWWqbZS5JpmVNG+84YqLcgdYcm9uAxzw4xWxnA/a3044Nm2PKXE62CT+pIZjk7OEYtTw==
-
-i18next-http-backend@^1.0.17:
-  version "1.2.1"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/i18next-http-backend/-/i18next-http-backend-1.2.1.tgz#50ced1a147c37c851daf64d230b3832fb7a20527"
-  integrity sha1-UM7RoUfDfIUdr2TSMLODL7eiBSc=
-  dependencies:
-    node-fetch "2.6.1"
-
-i18next-http-middleware@^3.0.2:
-  version "3.1.1"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/i18next-http-middleware/-/i18next-http-middleware-3.1.1.tgz#9d3b9a6b5cf05b36544022c2eed7a323681cff49"
-  integrity sha1-nTuaa1zwWzZUQCLC7tejI2gc/0k=
-
-i18next@^19.6.3:
-  version "19.9.2"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/i18next/-/i18next-19.9.2.tgz#ea5a124416e3c5ab85fddca2c8e3c3669a8da397"
-  integrity sha1-6loSRBbjxauF/dyiyOPDZpqNo5c=
-  dependencies:
-    "@babel/runtime" "^7.12.0"
 
 iconv-lite@0.4.24:
   version "0.4.24"
@@ -4495,6 +4439,15 @@ inline-style-parser@0.1.1:
   version "0.1.1"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/inline-style-parser/-/inline-style-parser-0.1.1.tgz#ec8a3b429274e9c0a1f1c4ffa9453a7fef72cea1"
   integrity sha1-7Io7QpJ06cCh8cT/qUU6f+9yzqE=
+
+intl-messageformat@9.6.7:
+  version "9.6.7"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/intl-messageformat/-/intl-messageformat-9.6.7.tgz#ce38c8c8903106cce37f0d7ad9595b4e552303e2"
+  integrity sha1-zjjIyJAxBszjfw162VlbTlUjA+I=
+  dependencies:
+    "@formatjs/icu-messageformat-parser" "1.1.5"
+    fast-memoize "^2.5.2"
+    tslib "^2.1.0"
 
 invariant@^2.2.2:
   version "2.2.4"
@@ -4793,11 +4746,6 @@ is-wsl@^2.2.0:
   integrity sha1-dKTHbnfKn9P5MvKQwX6jJs0VcnE=
   dependencies:
     is-docker "^2.0.0"
-
-isarray@0.0.1:
-  version "0.0.1"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
-  integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
 
 isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
@@ -6036,24 +5984,6 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha1-tKr7k+OustgXTKU88WOrfXMIMF8=
 
-next-i18next@^7.0.1:
-  version "7.0.1"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/next-i18next/-/next-i18next-7.0.1.tgz#5109b43cf374df633dc8100b5ed60ba4f0977294"
-  integrity sha1-UQm0PPN032M9yBALXtYLpPCXcpQ=
-  dependencies:
-    "@types/express" "^4.16.1"
-    core-js "^3"
-    hoist-non-react-statics "^3.2.0"
-    i18next "^19.6.3"
-    i18next-browser-languagedetector "^5.0.0"
-    i18next-fs-backend "^1.0.7"
-    i18next-http-backend "^1.0.17"
-    i18next-http-middleware "^3.0.2"
-    path-match "^1.2.4"
-    prop-types "^15.6.2"
-    react-i18next "^11.7.3"
-    url "^0.11.0"
-
 next@9.1.6:
   version "9.1.6"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/next/-/next-9.1.6.tgz#b3ede59d9069214807d9bde7d05b42e7fabcae51"
@@ -6161,7 +6091,7 @@ node-fetch@2.6.0:
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
   integrity sha1-5jNFY4bUqlWGP2dqerDaqP3ssP0=
 
-node-fetch@2.6.1, node-fetch@^2.6.1:
+node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha1-BFvTI2Mfdu0uK1VXM5RBa2OaAFI=
@@ -6666,14 +6596,6 @@ path-key@^3.0.0, path-key@^3.1.0:
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/path-key/-/path-key-3.1.1.tgz#581f6ade658cbba65a0d3380de7753295054f375"
   integrity sha1-WB9q3mWMu6ZaDTOA3ndTKVBU83U=
 
-path-match@^1.2.4:
-  version "1.2.4"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/path-match/-/path-match-1.2.4.tgz#a62747f3c7e0c2514762697f24443585b09100ea"
-  integrity sha1-pidH88fgwlFHYml/JEQ1hbCRAOo=
-  dependencies:
-    http-errors "~1.4.0"
-    path-to-regexp "^1.0.0"
-
 path-parse@^1.0.6:
   version "1.0.6"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
@@ -6683,13 +6605,6 @@ path-to-regexp@6.1.0:
   version "6.1.0"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/path-to-regexp/-/path-to-regexp-6.1.0.tgz#0b18f88b7a0ce0bfae6a25990c909ab86f512427"
   integrity sha1-Cxj4i3oM4L+uaiWZDJCauG9RJCc=
-
-path-to-regexp@^1.0.0:
-  version "1.8.0"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/path-to-regexp/-/path-to-regexp-1.8.0.tgz#887b3ba9d84393e87a0a0b9f4cb756198b53548a"
-  integrity sha1-iHs7qdhDk+h6CgufTLdWGYtTVIo=
-  dependencies:
-    isarray "0.0.1"
 
 path-type@^1.0.0:
   version "1.1.0"
@@ -7427,13 +7342,20 @@ react-error-overlay@5.1.6:
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
   integrity sha1-DNc0B8XRQfljiuHgxj57K/fpkp0=
 
-react-i18next@^11.7.3:
-  version "11.8.12"
-  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/react-i18next/-/react-i18next-11.8.12.tgz#6a9f57277062fb6a6129cad4db5e6198d5c60b58"
-  integrity sha1-ap9XJ3Bi+2phKcrU215hmNXGC1g=
+react-intl@^5.15.8:
+  version "5.15.8"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/react-intl/-/react-intl-5.15.8.tgz#e81ba679e1b751cd6f289e080f7afd2a4d8afc2f"
+  integrity sha1-6BumeeG3Uc1vKJ4ID3r9Kk2K/C8=
   dependencies:
-    "@babel/runtime" "^7.13.6"
-    html-parse-stringify2 "^2.0.1"
+    "@formatjs/ecma402-abstract" "1.6.5"
+    "@formatjs/icu-messageformat-parser" "1.1.5"
+    "@formatjs/intl" "1.9.8"
+    "@formatjs/intl-displaynames" "4.0.13"
+    "@formatjs/intl-listformat" "5.0.14"
+    "@types/hoist-non-react-statics" "^3.3.1"
+    hoist-non-react-statics "^3.3.2"
+    intl-messageformat "9.6.7"
+    tslib "^2.1.0"
 
 react-is@16.8.6:
   version "16.8.6"
@@ -8226,7 +8148,7 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
-"statuses@>= 1.2.1 < 2", "statuses@>= 1.5.0 < 2", statuses@~1.5.0:
+"statuses@>= 1.5.0 < 2", statuses@~1.5.0:
   version "1.5.0"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
@@ -8707,6 +8629,11 @@ tslib@^1.9.0:
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
+tslib@^2.1.0:
+  version "2.2.0"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
+  integrity sha1-+yxHWXfjXiQTEe3iaTzuHsZpj1w=
+
 tsscmp@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/tsscmp/-/tsscmp-1.0.6.tgz#85b99583ac3589ec4bfef825b5000aa911d605eb"
@@ -8947,11 +8874,6 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
-
-void-elements@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
-  integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
 w3c-hr-time@^1.0.2:
   version "1.0.2"

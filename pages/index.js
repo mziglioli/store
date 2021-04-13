@@ -2,12 +2,12 @@ import React from "react";
 import Link from "next/link";
 import {Title} from "../components";
 import Page from "../components/Page/Page";
-import {withTranslation} from "../i18n";
 
-const Home = ({ t, user }) => {
+const Home = ({ meta, user }) => {
+	meta.page = "home";
 	return (
 		<div>
-			<Page changeLanguage={() => {}} selectedLanguage={"en"} translations={t} user={user}>
+			<Page meta={meta} user={user}>
 				<Title text={"Home Page"} dataTestId={"home-title"} />
 				<Link href="/product" as="/product">
 					Find out our products
@@ -17,8 +17,7 @@ const Home = ({ t, user }) => {
 		</div>
 	)
 };
-Home.getInitialProps = async () => ({
-	namespacesRequired: ["common", "header"]
-})
-export default withTranslation("common")(Home);
+Home.getInitialProps = async () => ({})
+
+export default Home;
 

@@ -8,17 +8,19 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import appStyles from "../Styles";
 import {validateEmail, validatePassword} from "../utils/ValidatorUtils";
+import {FormattedMessage, useIntl} from "react-intl";
 
 interface LoginProps {
-    translations: { [key: string]: string };
     onSubmitLogin: (email: string, password: string) => void;
     showError: boolean;
 }
 
-export const LoginComponent = ({ translations, onSubmitLogin, showError }: LoginProps) => {
+export const LoginComponent = ({ onSubmitLogin, showError }: LoginProps) => {
     const classes = appStyles();
-    const emailErrorMessage = translations["email-error"];
-    const passwordErrorMessage = translations["password-error"];
+    const { formatMessage } = useIntl();
+
+    const emailErrorMessage = formatMessage({id: "login_email-error"});
+    const passwordErrorMessage = formatMessage({id:"login_password-error"});
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState("");
 
@@ -70,12 +72,12 @@ export const LoginComponent = ({ translations, onSubmitLogin, showError }: Login
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5"  >
-                    {translations["title"]}
+                    <FormattedMessage id={"title"}/>
                 </Typography>
                 <form className={classes.form} onSubmit={onSubmit} noValidate>
                     {showError && (
                         <Typography data-testid="login-error-text" component="h1" variant="h5" color="error">
-                            {translations["user-not-found"]}
+                            <FormattedMessage id="login_user-not-found" />
                         </Typography>
                     )}
                     <TextField
@@ -86,7 +88,7 @@ export const LoginComponent = ({ translations, onSubmitLogin, showError }: Login
                         id="login-email"
                         data-testid="login-email__div"
                         inputProps={{"data-testid": "login-email"}}
-                        label={translations["email"]}
+                        label={formatMessage({id:"login_email"})}
                         name="email"
                         autoComplete="email"
                         autoFocus
@@ -107,7 +109,7 @@ export const LoginComponent = ({ translations, onSubmitLogin, showError }: Login
                         required
                         fullWidth
                         name="password"
-                        label={translations["password"]}
+                        label={formatMessage({id:"login_password"})}
                         type="password"
                         id="login-password"
                         data-testid="login-password__div"
@@ -131,17 +133,17 @@ export const LoginComponent = ({ translations, onSubmitLogin, showError }: Login
                         color="primary"
                         className={classes.submit}
                     >
-                        {translations["sign-in"]}
+                        <FormattedMessage id="login_sign-in" />
                     </Button>
                     <Grid container>
                         <Grid item xs>
                             <Link href="#" variant="body2">
-                                {translations["sign-up"]} todo
+                                <FormattedMessage id="login_sign-up" />
                             </Link>
                         </Grid>
                         <Grid item>
                             <Link href="#" variant="body2">
-                                {translations["forgot-password"]} todo
+                                <FormattedMessage id="login_forgot-password" />
                             </Link>
                         </Grid>
                     </Grid>

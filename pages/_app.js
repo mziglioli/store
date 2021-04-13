@@ -5,9 +5,15 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../style/theme';
 import Cookies from 'cookies';
-import {appWithTranslation} from "../i18n";
+import { IntlProvider } from "react-intl";
+import * as locales from "../content/locale";
 
 const MyApp = ({ Component, pageProps }) => {
+    console.log("getInitialProps", "MyApp");
+
+    const localeCopy = locales[pageProps.meta.language];
+    console.log("localeCopy", pageProps.meta.language);
+    const messages = localeCopy;
 
     useEffect(() => {
         // Remove the server-side injected CSS.
@@ -26,7 +32,12 @@ const MyApp = ({ Component, pageProps }) => {
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                 <CssBaseline />
-                <Component {...pageProps} />
+                <IntlProvider
+                    locale={pageProps.meta.language}
+                    messages={messages}
+                >
+                    <Component {...pageProps} />
+                </IntlProvider>
             </ThemeProvider>
         </React.Fragment>
     );
@@ -38,19 +49,28 @@ MyApp.getInitialProps = async ({ Component, ctx }) => {
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
     const { req, res } = ctx;
     let user;
+    let language = "en";
     if (req && res) {
         const cookies = new Cookies(req, res);
-        const token = cookies.get(HEADER_TOKEN_NAME);
-        if (token) {
-            user = await check(token);
+        const cookieToken = cookies.get(HEADER_TOKEN_NAME);
+        if (cookieToken) {
+            user = await check(cookieToken);
+        }
+        const cookieLanguage = cookies.get("x-store-language");
+        if (cookieLanguage) {
+            console.log("setting language", cookieLanguage);
+            language = cookieLanguage;
         }
     }
     return {
         pageProps: {
             ...pageProps,
             user,
+            meta: {
+                language
+            },
         },
     };
 }
 
-export default appWithTranslation(MyApp);
+export default MyApp;
