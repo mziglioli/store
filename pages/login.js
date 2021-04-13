@@ -19,6 +19,7 @@ const Login = ({ t, meta }) => {
 			setShowError(true);
 		})
 	}
+	console.log("test", t("menu_home"), t("login_title"))
 	return (
 		<Page
 			meta={meta}
@@ -26,14 +27,21 @@ const Login = ({ t, meta }) => {
 				console.log("changeLanguage", i18n.language, language);
 				i18n.changeLanguage(language);
 			}}
-			translations={t}
+			translations={
+			{
+				"home": t("menu_home"),
+				"about": t("menu_about"),
+				"contact": t("menu_contact"),
+				"welcome": t("header_welcome"),
+				"login": t("menu_login")
+			}}
 			selectedLanguage={i18n.language}
 		>
 		<Container component="main" maxWidth="xs">
 			<CssBaseline />
 			<LoginComponent
 				translations={{
-					"title": t("login_login"),
+					"title": t("login_title"),
 					"email": t("login_email"),
 					"email-error": t("login_email-error"),
 					"password": t("login_password"),
@@ -54,9 +62,9 @@ const Login = ({ t, meta }) => {
 	)
 };
 Login.getInitialProps = async () => ({
-	namespacesRequired: ["common", "header", "login"],
+	namespacesRequired: ["common"],
 	meta: {
 		page: "login"
 	}
 })
-export default withTranslation(["common", "header", "login"])(Login);
+export default withTranslation(["common"])(Login);

@@ -4,11 +4,12 @@ import { Product as Products } from "../components/Product";
 import Page from "../components/Page/Page";
 import {i18n, withTranslation} from "../i18n";
 
-const Product = ({ t, user }) => {
+const Product = ({ t, user, meta }) => {
 	console.log("load");
 	return (
 		<div>
 			<Page
+				meta={meta}
 				changeLanguage={(language) => {
 					console.log("changeLanguage", i18n.language, language);
 					i18n.changeLanguage(language);
@@ -25,6 +26,9 @@ const Product = ({ t, user }) => {
 };
 
 Product.getInitialProps = async () => ({
-	namespacesRequired: ["common", "header"]
+	namespacesRequired: ["common"],
+	meta: {
+		page: "product"
+	}
 })
 export default withTranslation("common")(Product);
