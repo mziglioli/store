@@ -2,6 +2,8 @@ import express, { Request, Response } from "express";
 import next from "next";
 import expressSwagger from "express-swagger-generator";
 import swaggerConfig from "../config/swagger-config";
+const promBundle = require("express-prom-bundle");
+
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -10,10 +12,13 @@ const port = process.env.PORT || 3000;
 
 (async () => {
     try {
-
-
         await app.prepare();
         const server = express();
+
+        //add prometheus
+        const metricsMiddleware = promBundle({includeMethod: true});
+        server.use(metricsMiddleware);
+
         // eslint-disable-next-line no-underscore-dangle
         expressSwagger(server)(swaggerConfig);
         server.all("*", (req: Request, res: Response) => {
