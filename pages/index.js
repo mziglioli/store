@@ -3,6 +3,13 @@ import Link from "next/link";
 import {Title} from "../components";
 import Page from "../components/Page/Page";
 
+/**
+ * This function comment is parsed by doctrine
+ * @route GET home
+ * @group Content - home page
+ * @type text/html
+ * @returns {text/html} 200 - the home page
+ */
 const Home = ({ meta, user }) => {
 	meta.page = "home";
 	return (

@@ -1,6 +1,12 @@
 import { authenticate, HEADER_TOKEN_NAME } from "../../service/UserService"
 import Cookies from 'cookies';
 
+/**
+ * This function comment is parsed by doctrine
+ * @route GET api/login
+ * @group Content - authenticate the user
+ * @returns {UserResponseData.model} 200 - An user attached to the cookie
+ */
 export default async function handler(req, res) {
     console.log("handle-authenticate", req.body);
     const user = await authenticate(res, req.body);

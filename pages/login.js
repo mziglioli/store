@@ -5,6 +5,13 @@ import {LoginComponent} from "../components/LoginComponent";
 import { authenticate } from "../components/utils/UserClient";
 import Page from "../components/Page/Page";
 
+/**
+ * This function comment is parsed by doctrine
+ * @route GET login
+ * @group Content - login page
+ * @type text/html
+ * @returns {text/html} 200 - the login page
+ */
 const Login = ({ meta }) => {
 	meta.page = "login";
 	const [showError, setShowError] = useState(false);

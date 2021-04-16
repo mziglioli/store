@@ -1,5 +1,12 @@
 import Cookies from 'cookies';
 
+/**
+ * This function comment is parsed by doctrine
+ * @route GET api/change-language
+ * @group Content - change the application language, set the new language as cookie and header 'x-store-language'
+ * @returns {DefaultResponseData.model} 200 - when change the application language success
+ * @returns {Error}  500 - when some error happen
+ */
 export default function handler(req, res) {
     console.log("handle-change-language", req.body);
     const language = req.body || "en";
