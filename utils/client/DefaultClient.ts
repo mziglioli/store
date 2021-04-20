@@ -1,4 +1,9 @@
 import "isomorphic-fetch";
+import {RequestGetProps, RequestPostProps} from "../../type/request";
+
+const defaultHeaders = {
+	"Content-Type": "application/json"
+};
 
 /**
  * Will return the body as a json or an error object
@@ -18,17 +23,16 @@ export const handleResponse = response => {
 	});
 };
 
-export const makeGetRequest = async (url: string, headers: any) => {
+export const makeGetRequest = async ({url, headers}: RequestGetProps) => {
 	return fetch(url, {
 		method: "GET",
-		headers
+		headers: headers || defaultHeaders
 	}).then(handleResponse);
 };
-export const makePostRequest = async (url: string, form: any, headers: any) => {
+export const makePostRequest = async ({url, headers, form}: RequestPostProps) => {
 	return fetch(url, {
 		method: "POST",
-		headers,
+		headers: headers || defaultHeaders,
 		body: JSON.stringify(form)
 	}).then(handleResponse);
 };
-

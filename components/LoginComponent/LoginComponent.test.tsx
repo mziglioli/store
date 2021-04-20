@@ -1,15 +1,14 @@
 import React from "react";
 import { LoginComponent } from "./LoginComponent";
-import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { fireEventChangeAndBlur, fireEventClick } from "../utils/TestFunctionUtils";
+import { ComponentTestWrapper, fireEventChangeAndBlur, fireEventClick } from "../../utils";
 
-describe("Product component", () => {
+describe("<LoginComponent /> tests", () => {
 
 	let onsubmit;
 	const wrapper = (error: boolean) => {
-		return render(
-			<LoginComponent t={{}} onSubmitLogin={onsubmit} showError={error} />
+		return ComponentTestWrapper(
+			<LoginComponent onSubmitLogin={onsubmit} showError={error} />
 		);
 	}
 	beforeEach(() => {

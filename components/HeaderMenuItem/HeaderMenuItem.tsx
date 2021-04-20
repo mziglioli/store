@@ -1,15 +1,10 @@
 import React from 'react';
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import { HeaderMenuItemProps } from "../../type";
 
-interface HeaderMenuItemProps {
-    title: string;
-    name: string;
-    endpoint: string;
-    icon: any;
-}
 export const HeaderMenuItem = ({ title, name, endpoint, icon }: HeaderMenuItemProps) => {
     return (
-        <ListItem button key={`Drawer_${name}_Item`} component="a" href={endpoint}>
+        <ListItem button key={`Drawer_${name}_Item`} data-testid={`HeaderMenuItem__Component-${name}`} component="a" href={endpoint}>
             <ListItemIcon>{icon}</ListItemIcon>
             <ListItemText primary={title}/>
         </ListItem>

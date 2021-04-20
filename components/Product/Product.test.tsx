@@ -1,9 +1,9 @@
 import React from "react";
 import { Product } from "./Product";
-import {act, render} from "@testing-library/react";
+import { act } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { delay } from "../utils/TestFunctionUtils";
 import { getAll } from "../utils/ProductClient";
+import { ComponentTestWrapper, delay } from "../../utils";
 
 jest.mock("../utils/ProductClient");
 const productsMock = [
@@ -11,8 +11,7 @@ const productsMock = [
 	{name: "product 2"}
 ];
 
-describe("Product component", () => {
-
+describe("<Product /> tests", () => {
 	let mockedResponse;
 	const mockProducts = (products) => {
 		const fakeResponsePromise = Promise.resolve(products);
@@ -24,7 +23,7 @@ describe("Product component", () => {
 	};
 
 	const wrapper = () => {
-		return render(
+		return ComponentTestWrapper(
 			<Product />
 		);
 	}

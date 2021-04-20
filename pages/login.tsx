@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import {LoginComponent} from "../components/LoginComponent";
+import { LoginComponent, PageLayout } from "../components";
 import { authenticate } from "../components/utils/UserClient";
-import Page from "../components/Page/Page";
+import { DefaultProps } from "../type";
 
 /**
  * This function comment is parsed by doctrine
@@ -12,7 +12,7 @@ import Page from "../components/Page/Page";
  * @type text/html
  * @returns {text/html} 200 - the login page
  */
-const Login = ({ meta }) => {
+const Login = ({ meta, user }: DefaultProps) => {
 	meta.page = "login";
 	const [showError, setShowError] = useState(false);
 	const verifyAuthentication = (email, password) => {
@@ -27,7 +27,7 @@ const Login = ({ meta }) => {
 		})
 	}
 	return (
-		<Page meta={meta}>
+		<PageLayout meta={meta} user={user}>
 		<Container component="main" maxWidth="xs">
 			<CssBaseline />
 			<LoginComponent
@@ -38,7 +38,7 @@ const Login = ({ meta }) => {
 				}}
 				showError={showError} />
 		</Container>
-		</Page>
+		</PageLayout>
 	)
 };
 Login.getInitialProps = async () => ({})

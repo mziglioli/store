@@ -1,4 +1,4 @@
-import { makeGetRequest } from "./DefaultClient";
+import { makeGetRequest } from "../../utils";
 
 /**
  * Get all products from the api
@@ -6,5 +6,5 @@ import { makeGetRequest } from "./DefaultClient";
  * @returns Promise<todo>
  */
 export const getAll = async () => {
-	return makeGetRequest("/api/products");
+	return makeGetRequest({url:"/api/products"});
 };

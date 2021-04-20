@@ -1,4 +1,4 @@
-import { makePostRequest } from "./DefaultClient";
+import { makePostRequest } from "../../utils";
 import { LanguageForm } from "../../type/form/LanguageForm";
 
 /**
@@ -7,5 +7,5 @@ import { LanguageForm } from "../../type/form/LanguageForm";
  * @returns Promise<todo>
  */
 export const modifyLanguage = async (form: LanguageForm) => {
-	return makePostRequest("/api/change-language", form);
+	return makePostRequest({url: "/api/change-language", form});
 };

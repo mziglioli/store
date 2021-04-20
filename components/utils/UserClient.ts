@@ -1,5 +1,5 @@
-import {makeGetRequest, makePostRequest} from "./DefaultClient";
-import {UserForm} from "../../type/form";
+import { makeGetRequest, makePostRequest } from "../../utils";
+import { UserForm } from "../../type";
 
 /**
  * Get all users from the api
@@ -7,8 +7,8 @@ import {UserForm} from "../../type/form";
  * @returns Promise<todo>
  */
 export const getAll = async () => {
-	return makeGetRequest("/api/users");
+	return makeGetRequest({url: "/api/users"});
 };
 export const authenticate = async (form: UserForm) => {
-	return makePostRequest("/api/login", form);
+	return makePostRequest({url: "/api/login", form});
 };

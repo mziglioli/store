@@ -1,7 +1,6 @@
 import React from "react";
-import { Title } from "../components";
-import { Product as Products } from "../components/Product";
-import Page from "../components/Page/Page";
+import { Product as Products, Title, PageLayout } from "../components";
+import { DefaultProps } from "../type";
 
 /**
  * This function comment is parsed by doctrine
@@ -10,17 +9,14 @@ import Page from "../components/Page/Page";
  * @type text/html
  * @returns {text/html} 200 - the product page
  */
-const Product = ({ user, meta }) => {
+const Product = ({ user, meta }: DefaultProps) => {
 	meta.page = "product";
 	return (
 		<div>
-			<Page
-				meta={meta}
-				user={user}
-			>
+			<PageLayout meta={meta} user={user}>
 				<Title text={"test"} dataTestId={"product-title"} />
 				<Products />
-			</Page>
+			</PageLayout>
 		</div>
 	)
 };

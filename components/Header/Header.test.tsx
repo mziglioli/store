@@ -1,22 +1,20 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { Header } from "./Header";
+import { buildMeta, buildUserResponse, ComponentTestWrapper } from "../../utils";
 
-describe("Product component", () => {
+describe("<Header /> tests", () => {
 
-	const wrapper = (user) => {
-		return render(
-			<Header user={user} />
+	const wrapper = () => {
+		return ComponentTestWrapper(
+			<Header meta={buildMeta()} user={buildUserResponse()} />
 		);
 	}
 
 	it("should build component without user", () => {
-		const { getByTestId } = wrapper(undefined);
-		expect(getByTestId("header")).toHaveTextContent("Please sign in here: todo");
-	});
-	it("should build component with user", () => {
-		const { getByTestId } = wrapper({name: "test"});
-		expect(getByTestId("header")).toHaveTextContent("Welcome: test");
+		const { getByTestId } = wrapper();
+		expect(getByTestId("Header__Component")).toBeDefined();
+		expect(getByTestId("Header__Component-AppBar")).toBeDefined();
+		expect(getByTestId("Header__Component-Menu")).toBeDefined();
 	});
 });

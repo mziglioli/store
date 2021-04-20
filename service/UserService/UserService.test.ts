@@ -1,4 +1,4 @@
-import { buildUserResponse, mockNockGet, mockNockGetError } from "../../components/utils/TestFunctionUtils";
+import { buildUserResponse, mockNockGet, mockNockGetError } from "../../utils";
 import { UserApiURL } from "../../config/default";
 import { check } from "./UserService";
 
@@ -6,10 +6,6 @@ describe("UserService tests", () => {
 	let req;
 	const validUserResponse = buildUserResponse();
 	describe("check functional tests", () => {
-		beforeEach(() => {
-
-		});
-
 		it("should return a valid user response", async () => {
 			mockNockGet(UserApiURL, "/user/check/123", validUserResponse);
 			const user = await check("123");

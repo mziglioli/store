@@ -2,8 +2,8 @@
 /* eslint-disable  @typescript-eslint/no-var-requires */
 import { act, fireEvent } from "@testing-library/react";
 import nock from "nock";
-import {UserResponse} from "../../type/response";
-import {UserForm} from "../../type/form";
+import { UserResponse, UserForm, Meta } from "../../type";
+import * as locales from "../../content/locale";
 
 export const delay = async (delays?: number) => {
 	await act(async () => {
@@ -83,13 +83,14 @@ export const fireEventClick = async (element) => {
 };
 
 // builders
-export const buildUserResponse = (): UserResponse => {
+export const buildUserResponse = (overrides?: { [key: string]: unknown }): UserResponse => {
 	return {
 		id: "123",
 		name: "test",
 		email: "test@test.com",
 		active: true,
-		token: "123"
+		token: "123",
+		...overrides
 	}
 }
 export const buildUserForm = (): UserForm => {
@@ -100,4 +101,16 @@ export const buildUserForm = (): UserForm => {
 		active: true,
 		password: "password"
 	}
+}
+
+export const buildMeta = (overrides?: { [key: string]: unknown }): Meta => {
+	return {
+		language: "en",
+		page: "test",
+		...overrides
+	}
+}
+
+export const getMessagesTranslated = (language: string): any => {
+	return locales[language];
 }

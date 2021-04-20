@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import {Title} from "../components";
-import Page from "../components/Page/Page";
+import { Title, PageLayout } from "../components";
+import { DefaultProps } from "../type";
 
 /**
  * This function comment is parsed by doctrine
@@ -10,17 +10,17 @@ import Page from "../components/Page/Page";
  * @type text/html
  * @returns {text/html} 200 - the home page
  */
-const Home = ({ meta, user }) => {
+const Home = ({ meta, user }: DefaultProps) => {
 	meta.page = "home";
 	return (
 		<div>
-			<Page meta={meta} user={user}>
+			<PageLayout meta={meta} user={user}>
 				<Title text={"Home Page"} dataTestId={"home-title"} />
 				<Link href="/product" as="/product">
 					Find out our products
 				</Link>
-				Page here
-			</Page>
+				Page here todo
+			</PageLayout>
 		</div>
 	)
 };

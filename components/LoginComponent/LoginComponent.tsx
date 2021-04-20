@@ -7,13 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import appStyles from "../Styles";
-import {validateEmail, validatePassword} from "../utils/ValidatorUtils";
+import { validateEmail, validatePassword } from "../../utils";
 import {FormattedMessage, useIntl} from "react-intl";
-
-interface LoginProps {
-    onSubmitLogin: (email: string, password: string) => void;
-    showError: boolean;
-}
+import { LoginProps } from "../../type";
 
 export const LoginComponent = ({ onSubmitLogin, showError }: LoginProps) => {
     const classes = appStyles();
@@ -54,15 +50,12 @@ export const LoginComponent = ({ onSubmitLogin, showError }: LoginProps) => {
     const onSubmit = (e) => {
         e.preventDefault();
         let isValid = false;
-
         if (checkEmail() && checkPassword()) {
             // submit
             onSubmitLogin(email, password);
             isValid = true;
         }
-
         return isValid;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     };
 
     return (
