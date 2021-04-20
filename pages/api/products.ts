@@ -9,5 +9,6 @@ const productsMock = [
  * @returns {Array<ProductResponseData.model>} 200 - all products from mock api
  */
 export default function handler(req, res) {
+    console.log("Products:handler");
     res.status(200).json(productsMock);
 }

@@ -1,5 +1,5 @@
 import "isomorphic-fetch";
-import {RequestGetProps, RequestPostProps} from "../../type/request";
+import { RequestGetProps, RequestPostProps } from "../../type";
 
 const defaultHeaders = {
 	"Content-Type": "application/json"
@@ -26,7 +26,7 @@ export const handleResponse = response => {
 export const makeGetRequest = async ({url, headers}: RequestGetProps) => {
 	return fetch(url, {
 		method: "GET",
-		headers: headers || defaultHeaders
+		headers: headers || {}
 	}).then(handleResponse);
 };
 export const makePostRequest = async ({url, headers, form}: RequestPostProps) => {

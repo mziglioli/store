@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
+import { FormattedMessage, useIntl } from "react-intl";
+import { Avatar, Button, TextField, Link, Grid, Typography } from '@material-ui/core';
+import { LockOutlined as LockOutlinedIcon } from '@material-ui/icons';
 import appStyles from "../Styles";
 import { validateEmail, validatePassword } from "../../utils";
-import {FormattedMessage, useIntl} from "react-intl";
+
 import { LoginProps } from "../../type";
 
 export const LoginComponent = ({ onSubmitLogin, showError }: LoginProps) => {

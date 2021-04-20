@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { AppBar, IconButton, Menu, MenuItem, Toolbar, Typography } from "@material-ui/core";
 import { Menu as MenuIcon } from '@material-ui/icons';
-
 import clsx from "clsx";
 import appStyles from "../Styles";
 import Flag from 'react-world-flags';
