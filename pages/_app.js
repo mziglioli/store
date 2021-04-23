@@ -8,6 +8,14 @@ import Cookies from 'cookies';
 import { IntlProvider } from "react-intl";
 import * as locales from "../content/locale";
 
+// need for intl errors for pt
+import '@formatjs/intl-numberformat/polyfill-force';
+import '@formatjs/intl-numberformat/locale-data/pt';
+import '@formatjs/intl-numberformat/locale-data/en';
+import '@formatjs/intl-datetimeformat/polyfill-force';
+import '@formatjs/intl-datetimeformat/locale-data/pt';
+import '@formatjs/intl-datetimeformat/locale-data/en';
+
 const MyApp = ({ Component, pageProps }) => {
     console.log("getInitialProps", "MyApp");
 

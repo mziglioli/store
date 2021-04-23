@@ -1002,6 +1002,14 @@
     "@formatjs/ecma402-abstract" "1.6.5"
     tslib "^2.1.0"
 
+"@formatjs/intl-datetimeformat@^3.3.2":
+  version "3.3.2"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/intl-datetimeformat/-/intl-datetimeformat-3.3.2.tgz#b50a92012b4e62b267b1300f5f8aca6c1dffc7fc"
+  integrity sha1-tQqSAStOYrJnsTAPX4rKbB3/x/w=
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.6.5"
+    tslib "^2.1.0"
+
 "@formatjs/intl-displaynames@4.0.13":
   version "4.0.13"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/intl-displaynames/-/intl-displaynames-4.0.13.tgz#48ed7a8c25e082ee93d3042d5a73c7c836c53503"
@@ -1014,6 +1022,14 @@
   version "5.0.14"
   resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/intl-listformat/-/intl-listformat-5.0.14.tgz#20862c464841dc4c46893db9144f3da5e9dc304e"
   integrity sha1-IIYsRkhB3ExGiT25FE89pencME4=
+  dependencies:
+    "@formatjs/ecma402-abstract" "1.6.5"
+    tslib "^2.1.0"
+
+"@formatjs/intl-numberformat@^6.2.6":
+  version "6.2.6"
+  resolved "https://artifactory.server.traveljigsaw.com/artifactory/api/npm/npm-virtual/@formatjs/intl-numberformat/-/intl-numberformat-6.2.6.tgz#f4741a663b5603b960a3032eaccda01262488d44"
+  integrity sha1-9HQaZjtWA7lgowMurM2gEmJIjUQ=
   dependencies:
     "@formatjs/ecma402-abstract" "1.6.5"
     tslib "^2.1.0"
